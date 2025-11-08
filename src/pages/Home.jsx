@@ -8,12 +8,13 @@ const Home = () => {
   console.log(foodsData);
   return (
     <div>
+      <title>ShareBite - Home</title>
       <Banner />
       <Container>
         <div className="text-center text-3xl font-bold mt-10 text-accent">
           Shared with Generosity
         </div>
-        <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-3 my-10">
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-3 my-10">
           {foodsData.map((food) => (
             <FoodCard food={food} key={food._id} />
           ))}

@@ -1,35 +1,53 @@
-import { useState } from "react";
-import { useLoaderData } from "react-router";
+import { useEffect, useState } from "react";
 import FoodCard from "../components/foodCard/FoodCard";
 import Container from "../components/container/Container";
 import useAxios from "../hooks/useAxios";
+import EmptySearch from "../components/others/EmptySearch";
 
 const AvailableFoods = () => {
-  const allFoods = useLoaderData();
-  const [searchedItems, setSearchedItem] = useState(allFoods);
+  const [availableFoods, setAvailableFoods] = useState([]);
   const [loading, setLoading] = useState(false);
   const axiosInstance = useAxios();
 
+  useEffect(() => {
+    axiosInstance.get("http://localhost:5000/available-foods").then((data) => {
+      setAvailableFoods(data.data);
+      setLoading(false);
+    });
+  }, [axiosInstance]);
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    const searchText = e.target.search.value.trim();
+    const searchText = e.target.search.value.trim().toLowerCase();
+    if (!searchText) {
+      axiosInstance
+        .get("http://localhost:5000/available-foods")
+        .then((data) => {
+          setAvailableFoods(data.data);
+          setLoading(false);
+        });
+    }
     setLoading(true);
-    axiosInstance
-      .get(`http://localhost:5000/search?search=${searchText}`)
-      .then((data) => {
-        console.log(data.data);
-        setSearchedItem(data.data);
-        setLoading(false);
-      });
+    const filteredFoods = availableFoods.filter((food) =>
+      food.food_name.toLowerCase().includes(searchText)
+    );
+    setLoading(false);
+    setAvailableFoods(filteredFoods);
   };
   if (loading) return <p>Searching</p>;
   return (
-    <div>
+    <div className="my-24">
+      <title>ShareBite - Available Foods</title>
       <Container>
-        <div className="text-2xl text-center font-bold">
+        <div className="text-3xl text-center font-bold text-accent mb-4">
           Currently Available Foods
         </div>
-        <p className=" text-center mb-10 ">Explore 3d models.</p>
+        <p className=" text-center mb-10 text-primary">
+          Discover a variety of freshly prepared meals shared by our generous
+          community members. From wholesome vegetarian dishes to hearty
+          non-vegetarian options, there's something for everyone. Browse,
+          select, and enjoy nutritious food while supporting local food sharing.
+        </p>
         <form className="mb-5 text-center" onSubmit={handleSearchSubmit}>
           <div className="relative md:w-80 w-72 mx-auto">
             <input
@@ -59,12 +77,15 @@ const AvailableFoods = () => {
             </button>
           </div>
         </form>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {searchedItems.map((food) => (
-            <FoodCard food={food} key={food._id} />
-          ))}
-        </div>
+        {availableFoods.length === 0 ? (
+          <EmptySearch />
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+            {availableFoods.map((food) => (
+              <FoodCard food={food} key={food._id} />
+            ))}
+          </div>
+        )}
       </Container>
     </div>
   );
