@@ -4,11 +4,34 @@ import "./index.css";
 import { RouterProvider } from "react-router";
 import AuthProvider from "./context/AuthProvider";
 import router from "./routes/router";
+import { Toaster } from "react-hot-toast";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          success: {
+            style: {
+              background: "linear-gradient(90deg, #006400, #008000)",
+              color: "#fff",
+              fontFamily: "Poppins, sans-serif",
+              fontWeight: "600",
+            },
+          },
+          error: {
+            style: {
+              background: "linear-gradient(90deg, #cc0000, #ff004c)",
+              color: "#fff",
+              fontFamily: "Poppins, sans-serif",
+              fontWeight: "600",
+            },
+          },
+        }}
+      />
     </AuthProvider>
   </StrictMode>
 );

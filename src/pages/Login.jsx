@@ -66,7 +66,7 @@ const Login = () => {
             <h1 className="md:text-5xl text-3xl font-extrabold text-primary">
               Welcome Back
             </h1>
-            <p className="md:text-lg">
+            <p className="md:text-lg text-gray-600">
               Join the movement of sharing kindness through food with ShareBite.
               Give your extra meals a new purpose and brighten someone's day.
               Connect with your community, reduce waste, and spread love — one
@@ -83,13 +83,13 @@ const Login = () => {
             <form className="space-y-5" onSubmit={handleLogin}>
               {/* Email */}
               <div className="relative mb-7">
-                <label className="block text-base mb-1">Email *</label>
+                <label className="block text-gray-600 mb-1">Email *</label>
                 <input
                   type="email"
                   name="email"
                   onClick={() => setLoginError({ ...loginError, email: "" })}
                   placeholder="example@email.com"
-                  className="w-full bg-white/20 placeholder-gray-300 border-b-2 border-white/30 focus:outline-none focus:border-cyan-400 transition-all duration-200 p-2 text-secondary"
+                  className="w-full bg-white/20 placeholder-gray-300 border border-primary focus:outline-none focus:border-amber-400 transition-all duration-200 p-2 text-primary rounded-lg"
                 />
                 {loginError.email && (
                   <p className="absolute -bottom-5 left-0 text-xs text-red-400">
@@ -100,14 +100,14 @@ const Login = () => {
 
               {/* Password */}
               <div className="relative mb-7">
-                <label className="block text-base mb-1">Password *</label>
+                <label className="block text-gray-600 mb-1">Password *</label>
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
                   onClick={() => setLoginError({ ...loginError, password: "" })}
                   required
                   placeholder="Password"
-                  className=" w-full bg-white/20 placeholder-gray-300 border-b-2 border-white/30 focus:outline-none focus:border-cyan-400 transition-all duration-200 p-2 text-secondary"
+                  className="w-full bg-white/20 placeholder-gray-300 border border-primary focus:outline-none focus:border-amber-400 transition-all duration-200 p-2 text-primary rounded-lg"
                 />
                 {loginError.password && (
                   <p className="absolute -bottom-5 left-0 text-xs text-red-400">
@@ -119,18 +119,15 @@ const Login = () => {
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
-                    <Eye size={16} color="#00ffe0" />
+                    <Eye size={16} color="#f57c00" />
                   ) : (
-                    <EyeOff size={18} color="#00ffe0" />
+                    <EyeOff size={18} color="#f57c00" />
                   )}
                 </span>
               </div>
 
               {/* Login button */}
-              <button
-                type="submit"
-                className="btn btn-success text-black border-3 w-full border-rounded-lg border-success hover:bg-white rounded-md font-semibold transition-colors duration-300  text-xl py-5"
-              >
+              <button type="submit" className="mtBtn w-full h-11">
                 Login
               </button>
             </form>
@@ -146,7 +143,7 @@ const Login = () => {
             <button
               type="button"
               onClick={handleSignInWithGoogle}
-              className="flex items-center justify-center gap-3 bg-white text-gray-800 px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-200 transition-all cursor-pointer text-sm md:text-base border"
+              className="flex items-center justify-center gap-3 bg-white text-primary px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-200 transition-all cursor-pointer text-sm border"
             >
               <img
                 src="https://www.svgrepo.com/show/475656/google-color.svg"
