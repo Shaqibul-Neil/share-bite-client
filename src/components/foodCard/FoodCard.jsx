@@ -7,7 +7,6 @@ const FoodCard = ({ food }) => {
     food_image,
     food_quantity,
     pickup_location,
-    food_status,
     expire_date,
     donator,
   } = food;
@@ -28,13 +27,6 @@ const FoodCard = ({ food }) => {
       <div className="flex-1 flex flex-col justify-between ">
         <div className="space-y-2">
           <h2 className="text-xl font-bold text-accent">{food_name}</h2>
-          <div
-            className={`badge text-sm badge-sm ${
-              food_status === "Available" ? "badge-success" : "badge-warning"
-            } rounded-full text-white mt-1`}
-          >
-            {food_status}
-          </div>
 
           {/* Food Details */}
           <p className="text-primary mt-2 text-sm">
@@ -67,7 +59,7 @@ const FoodCard = ({ food }) => {
         <div className="mt-4">
           <Link
             className="myBtn w-full py-2 text-center block"
-            to={`/food-details/${_id}`}
+            to={`/food/${_id}`}
           >
             View Details
           </Link>

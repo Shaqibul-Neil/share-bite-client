@@ -3,11 +3,12 @@ import { MapPin, Phone } from "lucide-react";
 import { Link } from "react-router";
 
 const FoodDetailsCard = ({ foodInfo }) => {
-  const { food, requestModalRef, user } = foodInfo;
+  const { food, requestModalRef, user, conditionalClass } = foodInfo;
   const filteredDate = new Date(food.expire_date).toLocaleDateString();
   const handleRequestModal = () => {
     requestModalRef.current.showModal();
   };
+
   return (
     <div className="max-w-6xl mx-auto p-6">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -65,8 +66,12 @@ const FoodDetailsCard = ({ foodInfo }) => {
             <h2 className="text-3xl font-bold text-accent">
               {food?.food_name}
             </h2>
-            <span className="badge badge-outline badge-warning">
-              {food?.category || "No Category"}
+            <span
+              className={`badge badge-outline ${conditionalClass(
+                food?.food_status
+              )}`}
+            >
+              {food?.food_status}
             </span>
             <p className="text-primary text-sm">
               Donated by:{" "}

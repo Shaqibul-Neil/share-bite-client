@@ -1,5 +1,17 @@
+import Swal from "sweetalert2";
+import useAxios from "../../hooks/useAxios";
+
 const RequestFoodModal = ({ foodInfo }) => {
-  const { requestModalRef, user, food } = foodInfo;
+  const {
+    requestModalRef,
+    user,
+    food,
+    requestedFoods,
+    setRequestedFoods,
+    setRefresh,
+    refresh,
+  } = foodInfo;
+  const axiosInstance = useAxios();
   const handleFoodRequest = (e) => {
     e.preventDefault();
     e.preventDefault;
@@ -15,6 +27,22 @@ const RequestFoodModal = ({ foodInfo }) => {
       requestor_image: image,
       status: "Pending",
     };
+    axiosInstance.post("/requests", newRequest).then((data) => {
+      if (data.data?.result.insertedId) {
+        requestModalRef.current.close();
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your request has been placed",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        newRequest._id = data.data.result.insertedId;
+        const totalRequest = [...requestedFoods, newRequest];
+        setRequestedFoods(totalRequest);
+        setRefresh(!refresh);
+      }
+    });
   };
   return (
     <dialog

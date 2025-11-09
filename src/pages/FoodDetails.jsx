@@ -5,25 +5,39 @@ import useAuth from "../hooks/useAuth";
 import Container from "../components/container/Container";
 import RequestFoodModal from "../components/modal/RequestFoodModal";
 import FoodDetailsCard from "../components/foodCard/FoodDetailsCard";
+import RequestedFoodsTable from "../components/foodCard/RequestedFoodsTable";
 
 const FoodDetails = () => {
   const { id } = useParams();
   const { user } = useAuth();
   const [food, setFood] = useState({});
+  const [refresh, setRefresh] = useState(false);
   const [loading, setLoading] = useState(true);
   const [requestedFoods, setRequestedFoods] = useState([]);
   const requestModalRef = useRef();
   const axiosInstance = useAxios();
+
   useEffect(() => {
-    axiosInstance
-      .get(`http://localhost:5000/food-details/${id}`)
-      .then((data) => {
-        setFood(data.data.result);
-        setLoading(false);
-        console.log(data.data.result);
-      });
-  }, [axiosInstance, id]);
+    axiosInstance.get(`/food/${id}`).then((data) => {
+      setFood(data.data.result);
+      setLoading(false);
+    });
+  }, [axiosInstance, id, refresh]);
+
+  useEffect(() => {
+    axiosInstance.get(`/requests/food/${id}`).then((data) => {
+      setRequestedFoods(data.data);
+    });
+  }, [axiosInstance, id, refresh]);
+
   if (loading) return <p>Loading......</p>;
+
+  const conditionalClass = (status) => {
+    if (status === "Available") return "badge-success";
+    if (status === "Pending") return "badge-warning";
+    if (status === "Rejected") return "badge-error";
+    if (status === "Donated") return "badge-[#3B82F6]";
+  };
 
   const foodInfo = {
     food,
@@ -31,15 +45,19 @@ const FoodDetails = () => {
     setRequestedFoods,
     requestModalRef,
     user,
+    setRefresh,
+    refresh,
+    conditionalClass,
   };
   return (
-    <div className="bg-[#fefefe]">
-      <Container className="py-20">
+    <div className="bg-[#fefefe] space-y-16 py-16">
+      <Container>
         {/* main content */}
         <FoodDetailsCard foodInfo={foodInfo} />
         {/* request modal */}
         <RequestFoodModal foodInfo={foodInfo} />
       </Container>
+      <RequestedFoodsTable foodInfo={foodInfo} />
     </div>
   );
 };
