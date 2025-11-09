@@ -9,12 +9,14 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import useFood from "../hooks/useFood";
 
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [userLoading, setUserLoading] = useState(true);
+  const { allFoodData, foodLoading, foodError } = useFood();
 
   //create user with email password
   const createUser = (email, password) => {
@@ -58,6 +60,9 @@ const AuthProvider = ({ children }) => {
     signInUser,
     googleSignIn,
     signOutUser,
+    allFoodData,
+    foodLoading,
+    foodError,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

@@ -17,7 +17,7 @@ const FoodCard = ({ food }) => {
   return (
     <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 p-4 flex flex-col gap-4">
       {/* Food Image */}
-      <figure className="w-full h-64 overflow-hidden rounded-lg">
+      <figure className="w-full h-48 overflow-hidden rounded-lg">
         <img
           src={food_image}
           alt={food_name}
