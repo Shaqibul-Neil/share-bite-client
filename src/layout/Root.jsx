@@ -5,7 +5,7 @@ import Container from "../components/container/Container";
 const Root = () => {
   return (
     <section className="flex flex-col min-h-screen">
-      <header>
+      <header className="py-2">
         <Container>
           <Navbar />
         </Container>

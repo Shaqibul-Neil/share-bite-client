@@ -1,3 +1,9 @@
+import {
+  ClockFading,
+  HandPlatter,
+  MapPinned,
+  UtensilsCrossed,
+} from "lucide-react";
 import { Link } from "react-router";
 
 const FoodCard = ({ food }) => {
@@ -15,60 +21,69 @@ const FoodCard = ({ food }) => {
   const formattedDate = date.toLocaleDateString();
 
   return (
-    <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 p-4 flex flex-col gap-4">
+    <div className="group relative flex flex-col items-center text-center mx-auto rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-4 lg:w-[360px]">
       {/* Food Image */}
-      <figure className="w-full h-48 overflow-hidden rounded-lg">
+      <div className="relative w-full h-48 overflow-hidden rounded-md">
         <img
           src={food_image}
           alt={food_name}
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
-      </figure>
-
+      </div>
       {/* Food Name */}
-      <h2 className="text-xl font-bold text-accent text-center">{food_name}</h2>
-      <div className="space-y-2">
-        {/* Serving & Expire */}
-        <div className="flex justify-between">
-          <p>
-            <span className="font-bold text-primary">Serving:</span>{" "}
-            <span className="text-primary">
-              {food_quantity < 10 ? `0${food_quantity}` : food_quantity}
+      <h2 className="text-lg font-semibold text-[#1F1F1F] uppercase mt-4">
+        {food_name}
+      </h2>
+
+      {/* Divider */}
+      <div className="w-1/4 h-px bg-gray-400 my-3 mx-auto"></div>
+
+      {/* Food Details Horizontal */}
+      <div className="flex flex-col gap-3 mt-2 w-full">
+        <div className="flex items-center justify-between">
+          {/* Serving */}
+          <div className="flex items-center gap-3">
+            <UtensilsCrossed className="text-warning w-5 h-5 shrink-0" />
+            <span className="text-gray-700">
+              {food_quantity < 10 ? `0${food_quantity}` : food_quantity} People
             </span>
-          </p>
-          <p>
-            <span className="font-bold text-primary">Expire:</span>{" "}
-            <span className="text-primary">{formattedDate}</span>
-          </p>
-        </div>
+          </div>
 
-        {/* Pickup & Donated By */}
-
-        <p>
-          <span className="font-bold text-primary">Pickup:</span>{" "}
-          <span className="text-primary">{pickup_location}</span>
-        </p>
-        <div className="flex items-center gap-2">
-          <span className="font-bold text-primary">Donated By:</span>
-          <div className="flex items-center gap-2">
-            <img
-              src={donator.image}
-              alt={donator.name}
-              className="w-8 h-8 rounded-lg object-cover"
-            />
-            <span className="text-sm text-accent font-semibold">
-              {donator.name}
-            </span>{" "}
+          {/* Expire */}
+          <div className="flex items-center gap-3">
+            <ClockFading className="text-warning w-5 h-5 shrink-0" />
+            <span className="text-gray-700">{formattedDate}</span>
           </div>
         </div>
+
+        {/* Donator */}
+        <div className="flex items-center gap-3">
+          <HandPlatter className="text-warning w-5 h-5 shrink-0" />
+          <div className="flex items-center gap-2">
+            <img
+              className="w-8 h-8 rounded-md"
+              src={donator.image}
+              alt={donator.name}
+            />
+            <span className="text-gray-700">{donator.name}</span>
+          </div>
+        </div>
+        {/* Pickup */}
+        <div className="flex items-center gap-3">
+          <MapPinned className="text-warning w-5 h-5 shrink-0" />
+          <span className="text-gray-700">{pickup_location}</span>
+        </div>
       </div>
-      {/* View Details Button */}
-      <div className="mt-4 w-full">
+
+      <div className="mt-6 w-full">
         <Link
-          className="myBtn w-full py-2 text-center block"
+          className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-white rounded hover:bg-white group border border-warning"
           to={`/food/${_id}`}
         >
-          View Details
+          <span className="w-48 h-48 rounded rotate-[-40deg] bg-warning absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
+          <span className="relative w-full text-left text-warning transition-colors duration-300 ease-in-out group-hover:text-white">
+            View Details
+          </span>
         </Link>
       </div>
     </div>

@@ -1,8 +1,16 @@
-import { FaUser } from "react-icons/fa";
-import { IoLogIn, IoLogOut } from "react-icons/io5";
+import { IoLogIn } from "react-icons/io5";
 import { Link, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import MyLinks from "../mylinks/MyLinks";
+import {
+  HandHelping,
+  LogIn,
+  LogOut,
+  PackageSearch,
+  SquarePlus,
+} from "lucide-react";
+import MyButton from "../button/MyButton";
 
 const Navbar = () => {
   const { user, setUser, signOutUser } = useAuth();
@@ -18,10 +26,14 @@ const Navbar = () => {
   };
   return (
     <nav>
-      <div className="navbar py-0 min-h-0 relative z-100">
+      <div className="navbar min-h-0 relative z-100 pl-0">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost md:hidden pl-0"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -43,10 +55,28 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link to={"/"}>Home</Link>
+                <MyLinks
+                  to={"/"}
+                  className="hover:text-warning transition-all duration-300"
+                >
+                  Home
+                </MyLinks>
               </li>
               <li>
-                <Link to={"/available-foods"}>Available Foods</Link>
+                <MyLinks
+                  to={"/about-us"}
+                  className="hover:text-warning transition-all duration-300"
+                >
+                  About
+                </MyLinks>
+              </li>
+              <li>
+                <MyLinks
+                  to={"/available-foods"}
+                  className="hover:text-warning transition-all duration-300"
+                >
+                  Available Foods
+                </MyLinks>
               </li>
             </ul>
           </div>
@@ -55,12 +85,30 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden md:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="flex items-center gap-6">
             <li>
-              <Link to={"/"}>Home</Link>
+              <MyLinks
+                to={"/"}
+                className="hover:text-warning transition-all duration-300"
+              >
+                Home
+              </MyLinks>
             </li>
             <li>
-              <Link to={"/available-foods"}>Available Foods</Link>
+              <MyLinks
+                to={"/about-us"}
+                className="hover:text-warning transition-all duration-300"
+              >
+                About
+              </MyLinks>
+            </li>
+            <li>
+              <MyLinks
+                to={"/available-foods"}
+                className="hover:text-warning transition-all duration-300"
+              >
+                Available Foods
+              </MyLinks>
             </li>
           </ul>
         </div>
@@ -85,38 +133,58 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex="-1"
-                className="menu  menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow space-y-1"
               >
-                <div className=" pb-3 border-b border-b-gray-200">
+                <div className="pb-3 border-b border-b-amber-600 text-center space-y-1">
                   <li className="text-sm font-bold">{user.displayName}</li>
                   <li className="text-xs">{user.email}</li>
                 </div>
-                <li className="mt-3">
-                  <Link to={"/add-foods"}>Add Foods</Link>
+                <li>
+                  <MyLinks
+                    to={"/add-foods"}
+                    className="hover:text-warning transition-all duration-300 flex items-center justify-center"
+                  >
+                    <SquarePlus size={18} />
+                    <span>Add Foods</span>
+                  </MyLinks>
                 </li>
                 <li>
-                  <Link to={"/manage-my-foods"}>
-                    <FaUser /> Manage My Foods
-                  </Link>
+                  <MyLinks
+                    to={"/manage-my-foods"}
+                    className="hover:text-warning transition-all duration-300 flex items-center justify-center"
+                  >
+                    <PackageSearch size={18} /> <span>Manage My Foods</span>
+                  </MyLinks>
                 </li>
                 <li>
-                  <Link to={"/my-food-request"}>My Food Requests</Link>
+                  <MyLinks
+                    to={"/my-food-request"}
+                    className="hover:text-warning transition-all duration-300 flex items-center justify-center"
+                  >
+                    <HandHelping size={18} />
+                    <span> My Food Requests</span>
+                  </MyLinks>
                 </li>
 
                 <li>
                   <button
-                    className="btn btn-xs text-left bg-linear-to-r from-pink-500 to-red-500 text-white"
+                    className="btn h-8 text-left bg-warning text-white flex items-center justify-center"
                     onClick={handleSignOut}
                   >
-                    <IoLogOut /> Logout
+                    <LogOut size={18} /> <span>Logout</span>
                   </button>
                 </li>
               </ul>
             </div>
           ) : (
-            <Link to={"/login"} className="btn border-gray-300">
-              <IoLogIn /> Login
-            </Link>
+            <MyButton
+              to={"/login"}
+              className={
+                "py-1 bg-amber-500 hover:bg-amber-500 border-amber-500"
+              }
+            >
+              Login
+            </MyButton>
           )}
         </div>
       </div>
