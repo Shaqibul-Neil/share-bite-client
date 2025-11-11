@@ -88,7 +88,7 @@ const MyFoodRequest = () => {
   return (
     <div className="bg-[#E9E9E9] min-h-screen py-20">
       <Container>
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 items-center">
           {/* ---------- LEFT SIDE ---------- */}
           <div className="space-y-6 col-span-1">
             <h2 className="text-3xl font-bold text-accent">My Food Requests</h2>
@@ -134,7 +134,7 @@ const MyFoodRequest = () => {
 
           {/* ---------- RIGHT SIDE / TABLE ---------- */}
           {/* table for md and lg screen */}
-          <div className="lg:col-span-2 overflow-x-auto bg-white p-6 rounded-lg shadow-md hidden md:block h-auto">
+          <div className="lg:col-span-2 overflow-x-auto bg-white p-6 rounded-lg shadow-md hidden md:block">
             {loading ? (
               <TableRequestSkeleton count={3} />
             ) : myRequests.length === 0 ? (
@@ -237,7 +237,7 @@ const MyFoodRequest = () => {
           </div>
 
           {/* table for sm screen */}
-          <div className="md:hidden overflow-x-auto h-auto w-full p-4 bg-white rounded-lg shadow-md">
+          <div className="md:hidden overflow-x-auto w-full p-4 bg-white rounded-lg shadow-md">
             <table className="table table-xs table-pin-rows table-pin-cols">
               <thead>
                 <tr>

@@ -71,7 +71,7 @@ const ManageMyFoods = () => {
   return (
     <div className="bg-[#E9E9E9] min-h-screen py-20">
       <Container>
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 items-center">
           {/* LEFT SIDE */}
           <div className="space-y-6 col-span-1">
             <h2 className="text-3xl font-bold text-accent">

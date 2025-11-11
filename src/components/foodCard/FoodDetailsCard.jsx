@@ -3,7 +3,7 @@ import { MapPin, Phone } from "lucide-react";
 import { Link } from "react-router";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import SecondaryButton from "../button/SecondaryButton"; // তোমার reusable button path অনুযায়ী ঠিক করে নিও
+import SecondaryButton from "../button/SecondaryButton";
 
 const FoodDetailsCard = ({ foodInfo }) => {
   const { food, requestModalRef, user, conditionalClass } = foodInfo;
@@ -30,8 +30,8 @@ const FoodDetailsCard = ({ foodInfo }) => {
         <div>
           <div className="rounded-lg overflow-hidden shadow-md">
             <img
-              src={food.food_image}
-              alt={food.food_name}
+              src={food?.food_image}
+              alt={food?.food_name}
               className="rounded-lg w-full object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
@@ -73,9 +73,9 @@ const FoodDetailsCard = ({ foodInfo }) => {
                   <p className="text-sm font-semibold">
                     Quantity :{" "}
                     <span className="font-normal">
-                      {food.food_quantity < 10
-                        ? `0${food.food_quantity}`
-                        : food.food_quantity}
+                      {food?.food_quantity < 10
+                        ? `0${food?.food_quantity}`
+                        : food?.food_quantity}
                     </span>
                   </p>
                   <p className="text-sm">
@@ -87,22 +87,22 @@ const FoodDetailsCard = ({ foodInfo }) => {
                   <p className="text-sm font-semibold">
                     Notes :{" "}
                     <span className=" text-gray-600 font-normal">
-                      {food.additional_notes || "No notes provided"}
+                      {food?.additional_notes || "No notes provided"}
                     </span>
                   </p>
                   <p className="text-sm mt-2 font-semibold">
                     Donated by :{" "}
                     <span className="font-normal">
-                      {food.donator.name || "Anonymous"}
+                      {food?.donator?.name || "Anonymous"}
                     </span>
                   </p>
                   <div className="flex items-center gap-2">
                     <MapPin color="red" size={18} />{" "}
-                    <span>{food.pickup_location}</span>
+                    <span>{food?.pickup_location}</span>
                   </div>
                 </div>
 
-                {user?.email !== food.donator.email && (
+                {user?.email !== food?.donator?.email && (
                   <div className="w-full mt-4">
                     <SecondaryButton
                       className={
@@ -124,17 +124,17 @@ const FoodDetailsCard = ({ foodInfo }) => {
                 <div className="flex gap-4 items-center">
                   <div className="h-14 w-14 rounded-lg overflow-hidden">
                     <img
-                      src={food.donator.image}
-                      alt={food.donator.name}
+                      src={food?.donator?.image}
+                      alt={food?.donator?.name}
                       className="h-full w-full object-cover"
                     />
                   </div>
                   <div>
                     <p className="font-semibold text-primary">
-                      {food.donator.name || "Anonymous"}
+                      {food?.donator?.name || "Anonymous"}
                     </p>
                     <p className="text-sm text-gray-600">
-                      {food.donator.email}
+                      {food?.donator?.email}
                     </p>
                   </div>
                 </div>
@@ -144,7 +144,7 @@ const FoodDetailsCard = ({ foodInfo }) => {
                     className="w-44 py-2 border-blue-500 text-blue-500 bg-blue-500 hover:bg-blue-500"
                     hoverTextColor="group-hover:text-blue-500"
                     onClick={() =>
-                      (window.location.href = `mailto:${food.donator.email}`)
+                      (window.location.href = `mailto:${food?.donator?.email}`)
                     }
                   >
                     <span className="flex items-center gap-1">
@@ -156,7 +156,7 @@ const FoodDetailsCard = ({ foodInfo }) => {
                     className="w-44 py-2 bg-success text-success border-success hover:bg-success"
                     hoverTextColor="group-hover:text-success"
                     onClick={() =>
-                      (window.location.href = `tel:${food.donator.phone}`)
+                      (window.location.href = `tel:${food?.donator?.phone}`)
                     }
                   >
                     <span className="flex items-center gap-1">

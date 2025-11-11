@@ -6,6 +6,7 @@ import RequestFoodModal from "../components/modal/RequestFoodModal";
 import FoodDetailsCard from "../components/foodCard/FoodDetailsCard";
 import RequestedFoodsTable from "../components/foodCard/RequestedFoodsTable";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import FoodDetailsCardSkeleton from "../components/others/FoodDetailsCardSkeleton";
 
 const FoodDetails = () => {
   const { id } = useParams();
@@ -18,8 +19,10 @@ const FoodDetails = () => {
 
   useEffect(() => {
     axiosSecureInstance.get(`/food/${id}`).then((data) => {
-      setFood(data.data.result);
-      setLoading(false);
+      setTimeout(() => {
+        setFood(data.data.result);
+        setLoading(false);
+      }, 1500);
     });
   }, [axiosSecureInstance, id, refresh]);
 
@@ -28,8 +31,6 @@ const FoodDetails = () => {
       setRequestedFoods(data.data);
     });
   }, [axiosSecureInstance, id, refresh]);
-
-  if (loading) return <p>Loading......</p>;
 
   const conditionalClass = (status) => {
     if (status === "Available" || status === "Accepted") return "badge-success";
@@ -52,11 +53,15 @@ const FoodDetails = () => {
     <div className="bg-[#fefefe] space-y-16 py-16">
       <Container>
         {/* main content */}
-        <FoodDetailsCard foodInfo={foodInfo} />
+        {loading ? (
+          <FoodDetailsCardSkeleton foodInfo={foodInfo} />
+        ) : (
+          <FoodDetailsCard foodInfo={foodInfo} />
+        )}
         {/* request modal */}
         <RequestFoodModal foodInfo={foodInfo} />
       </Container>
-      {user?.email === food.donator.email && (
+      {user?.email === food.donator?.email && (
         <RequestedFoodsTable foodInfo={foodInfo} />
       )}
     </div>
