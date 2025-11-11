@@ -1,7 +1,7 @@
 import { Clock, MapPin, UtensilsCrossed } from "lucide-react";
 import { Link } from "react-router";
 
-const FoodCard = ({ food }) => {
+const FoodCard = ({ food, aosAnimation }) => {
   const {
     _id,
     food_name,
@@ -17,7 +17,10 @@ const FoodCard = ({ food }) => {
   const formattedDate = date.toLocaleDateString();
 
   return (
-    <div className="card bg-base-100 lg:w-96 shadow-md hover:shadow-xl transition-all duration-300 mx-auto group rounded-md border border-gray-300">
+    <div
+      className="card bg-base-100 lg:w-96 shadow-md hover:shadow-xl transition-all duration-300 mx-auto group rounded-md border border-gray-300"
+      data-aos={aosAnimation}
+    >
       {/* Image */}
       <figure className="relative overflow-hidden">
         <img

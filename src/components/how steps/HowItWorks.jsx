@@ -1,4 +1,3 @@
-import React from "react";
 import postFoodImg from "../../assets/post.jpg";
 import findFoodImg from "../../assets/search.jpg";
 import collectFoodImg from "../../assets/delivery.jpg";
@@ -12,10 +11,13 @@ const HowItWorks = () => {
           Getting Started
         </p>
 
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-accent leading-tight text-center">
+        <h2
+          className="text-3xl sm:text-4xl font-extrabold text-accent leading-tight text-center"
+          data-aos="fade-down"
+        >
           How It <span className="text-warning">Works</span>
         </h2>
-        <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
+        <p className="text-gray-600 mt-3 max-w-2xl mx-auto" data-aos="fade-up">
           Follow these three simple steps to share or receive food through
           ShareBite.
         </p>

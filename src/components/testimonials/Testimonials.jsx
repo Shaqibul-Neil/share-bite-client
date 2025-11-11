@@ -39,11 +39,14 @@ const Testimonials = () => {
           <p className="bg-orange-100 text-orange-600 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider w-28">
             Testimonials
           </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold leading-tight text-gray-900">
+          <h2
+            className="text-3xl md:text-4xl font-extrabold leading-tight text-gray-900"
+            data-aos="fade-up"
+          >
             What People Say <br />
             <span className="text-orange-500">About Us</span>
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600" data-aos="fade-down">
             See how ShareBite has helped donors and receivers connect
             seamlessly. Our community thrives on sharing and reducing food
             waste.
@@ -51,7 +54,10 @@ const Testimonials = () => {
         </div>
 
         {/* Right Slider */}
-        <div className="lg:w-1/2 w-full relative p-2 shadow-2xl rounded-md">
+        <div
+          className="lg:w-1/2 w-full relative p-2 shadow-2xl rounded-md"
+          data-aos="fade-down"
+        >
           <Swiper
             modules={[Autoplay, EffectCreative, Navigation]}
             slidesPerView={1}

@@ -14,7 +14,7 @@ const Footer = () => {
 
           <span className="text-accent lg:text-4xl text-2xl font-extrabold leading-tight">
             Share
-            <span className="text-amber-500 top-1 relative">Bite</span>
+            <span className="text-amber-600 top-1 relative">Bite</span>
           </span>
         </Link>
 

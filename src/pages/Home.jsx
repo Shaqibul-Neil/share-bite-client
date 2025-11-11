@@ -6,6 +6,7 @@ import MyButton from "../components/button/MyButton";
 import About from "../components/about/About";
 import HowItWorks from "../components/how steps/HowItWorks";
 import Testimonials from "../components/testimonials/Testimonials";
+import CommunityStats from "../components/community/CommunityStats";
 
 const Home = () => {
   const foodsData = useLoaderData();
@@ -24,18 +25,28 @@ const Home = () => {
               Good Deeds
             </p>
 
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-accent leading-tight text-center">
+            <h2
+              className="text-3xl sm:text-4xl font-extrabold text-accent leading-tight text-center"
+              data-aos="fade-down"
+            >
               Shared with <span className="text-warning">Generosity</span>
             </h2>
-            <p className="text-center text-gray-600 mt-3 max-w-2xl mx-auto">
+            <p
+              className="text-center text-gray-600 mt-3 max-w-2xl mx-auto"
+              data-aos="fade-up"
+            >
               Every meal tells a story of kindness. Explore a community where
               generous hearts come together to share food, reduce waste, and
               nourish those in need. Join us in making every bite count.
             </p>
           </div>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 my-10">
-            {foodsData.map((food) => (
-              <FoodCard food={food} key={food._id} />
+            {foodsData.map((food, i) => (
+              <FoodCard
+                food={food}
+                key={food._id}
+                aosAnimation={i % 2 === 0 ? "zoom-in-up" : "zoom-in-down"}
+              />
             ))}
           </div>
           <div className="flex justify-center mt-6">
@@ -53,6 +64,9 @@ const Home = () => {
         <Container>
           <HowItWorks />
         </Container>
+      </section>
+      <section className="mb-16 lg:mb-0">
+        <CommunityStats />
       </section>
       <section>
         <Container>

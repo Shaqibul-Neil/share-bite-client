@@ -6,7 +6,7 @@ const About = () => {
     <div className="py-16 lg:py-32 md:py-20 px-3 md:px-6 lg:pl-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Left Content Area */}
-        <div className="space-y-4">
+        <div className="space-y-4" data-aos="fade-up">
           <div className="inline-block bg-orange-100 text-warning text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
             About ShareBite
           </div>
@@ -78,7 +78,10 @@ const About = () => {
         </div>
 
         {/* Right Image + Stats */}
-        <div className="relative w-full h-80 sm:h-96 lg:h-full flex justify-center items-center">
+        <div
+          className="relative w-full h-80 sm:h-96 lg:h-full flex justify-center items-center"
+          data-aos="fade-down"
+        >
           {/* Background Image */}
           <div
             className="absolute inset-0 bg-cover bg-center rounded-md lg:rounded-l-md overflow-hidden"
