@@ -5,6 +5,7 @@ import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import SecondaryButton from "../components/button/SecondaryButton";
 
 const AddFoods = () => {
   const [expireDate, setExpireDate] = useState(null);
@@ -54,7 +55,7 @@ const AddFoods = () => {
           people in need to request.
         </p>
 
-        <div className="bg-white shadow-md p-6 rounded-lg border-l-4 border-accent space-y-3">
+        <div className="space-y-3">
           <h3 className="font-semibold text-lg text-accent">
             🥦 Submission Guidelines:
           </h3>
@@ -110,6 +111,7 @@ const AddFoods = () => {
             <input
               type="tel"
               name="phone"
+              required
               placeholder="Enter your contact number"
               className="w-64 lg:w-84 bg-gray-50 border border-accent p-2 rounded-md focus:outline-none"
             />
@@ -132,6 +134,7 @@ const AddFoods = () => {
             <input
               type="text"
               name="food_name"
+              required
               placeholder="Enter food name"
               className="w-64 lg:w-84 bg-gray-50 border border-accent p-2 rounded-md focus:outline-none"
             />
@@ -144,6 +147,7 @@ const AddFoods = () => {
             <input
               type="url"
               name="food_image"
+              required
               placeholder="https://imgbb.com/your-image"
               className="w-64 lg:w-84 bg-gray-50 border border-accent p-2 rounded-md focus:outline-none"
             />
@@ -155,6 +159,7 @@ const AddFoods = () => {
             <input
               type="text"
               name="food_quantity"
+              required
               placeholder="e.g. 10 plates or Serves 2"
               className="w-64 lg:w-84 bg-gray-50 border border-accent p-2 rounded-md focus:outline-none"
             />
@@ -164,6 +169,7 @@ const AddFoods = () => {
             <label className="block mb-1 font-medium">Expiry Date</label>
             <DatePicker
               selected={expireDate}
+              required
               name="expire_date"
               onChange={(date) => setExpireDate(date)}
               placeholderText="Select expiry date"
@@ -175,6 +181,7 @@ const AddFoods = () => {
             <label className="block mb-1 font-medium">Pickup Location</label>
             <input
               type="text"
+              required
               name="pickup_location"
               placeholder="Enter pickup address"
               className="w-64 lg:w-84 bg-gray-50 border border-accent p-2 rounded-md focus:outline-none"
@@ -185,19 +192,27 @@ const AddFoods = () => {
             <label className="block mb-1 font-medium">Additional Notes</label>
             <textarea
               rows="3"
+              required
               placeholder="Write any special info about the food..."
               name="additional_notes"
               className="lg:w-full w-64 bg-gray-50 border border-accent p-2 rounded-md focus:outline-none"
             ></textarea>
           </div>
 
-          <div className="lg:col-span-3 md:col-span-2 sm:col-span-1 flex justify-end pt-4">
-            <button
+          <div className="lg:col-span-3 md:col-span-2 sm:col-span-1 flex justify-center pt-4">
+            <SecondaryButton
+              type="submit"
+              className={"w-48 bg-warning hover:bg-warning border-warning py-3"}
+              hoverTextColor="group-hover:text-warning"
+            >
+              Submit Food
+            </SecondaryButton>
+            {/* <button
               type="submit"
               className="myBtn text-accent w-full py-2 rounded-md"
             >
               Submit Food
-            </button>
+            </button> */}
           </div>
         </form>
       </section>

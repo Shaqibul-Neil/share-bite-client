@@ -3,6 +3,7 @@ import useAuth from "../hooks/useAuth";
 import Container from "../components/container/Container";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import SecondaryButton from "../components/button/SecondaryButton";
 
 const MyFoodRequest = () => {
   const { user, allFoodData, refresh, setRefresh } = useAuth();
@@ -25,6 +26,7 @@ const MyFoodRequest = () => {
       },
       buttonsStyling: false,
     });
+
     swalWithBootstrapButtons
       .fire({
         title: "Are you sure?",
@@ -38,7 +40,6 @@ const MyFoodRequest = () => {
       .then((result) => {
         if (result.isConfirmed) {
           axiosSecureInstance.delete(`/my-requests/${id}`).then((data) => {
-            console.log(data);
             if (data.data.result.deletedCount) {
               swalWithBootstrapButtons.fire({
                 title: "Deleted!",
@@ -48,10 +49,7 @@ const MyFoodRequest = () => {
               setRefresh(!refresh);
             }
           });
-        } else if (
-          /* Read more about handling dismissals below */
-          result.dismiss === Swal.DismissReason.cancel
-        ) {
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
           swalWithBootstrapButtons.fire({
             title: "Cancelled",
             text: "Your request is safe",
@@ -160,12 +158,13 @@ const MyFoodRequest = () => {
 
                         {/* ---------- Delete Button ---------- */}
                         <td>
-                          <button
-                            className="btn btn-outline btn-error btn-xs"
+                          <SecondaryButton
+                            className="border-error bg-error hover:bg-error/90"
+                            hoverTextColor="group-hover:text-error"
                             onClick={() => handleReqDelete(req._id)}
                           >
                             Delete
-                          </button>
+                          </SecondaryButton>
                         </td>
                       </tr>
                     );
