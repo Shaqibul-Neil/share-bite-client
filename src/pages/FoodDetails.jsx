@@ -54,7 +54,7 @@ const FoodDetails = () => {
       <Container>
         {/* main content */}
         {loading ? (
-          <FoodDetailsCardSkeleton foodInfo={foodInfo} />
+          <FoodDetailsCardSkeleton />
         ) : (
           <FoodDetailsCard foodInfo={foodInfo} />
         )}
