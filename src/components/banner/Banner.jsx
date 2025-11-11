@@ -1,4 +1,5 @@
-import heroVideo from "../../assets/donate.mp4"; // video path
+import heroVideo from "../../assets/donate.mp4";
+import fallback from "../../assets/videofallback.jpg";
 import Container from "../container/Container";
 import MyButton from "../button/MyButton";
 
@@ -9,17 +10,19 @@ const Banner = () => {
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
         src={heroVideo}
+        type="video/mp4"
         autoPlay
         muted
         loop
         playsInline
+        poster={fallback}
       />
 
       {/* Dark Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-black/40 bg-opacity-50"></div>
       <Container>
         {/* Content */}
-        <div className="relative z-10 max-w-4xl  text-left space-y-8">
+        <div className="relative z-10 max-w-4xl text-left space-y-8 my-16">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
             Share a Meal, Share a Smile
           </h1>

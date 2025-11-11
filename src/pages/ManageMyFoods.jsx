@@ -171,7 +171,6 @@ const ManageMyFoods = () => {
                                   state: { food },
                                 })
                               }
-                              disabled={food.food_status === "Donated"}
                             >
                               Update
                             </SecondaryButton>
@@ -244,7 +243,6 @@ const ManageMyFoods = () => {
                             state: { food },
                           })
                         }
-                        disabled={food.food_status === "Donated"}
                       >
                         Update
                       </SecondaryButton>
