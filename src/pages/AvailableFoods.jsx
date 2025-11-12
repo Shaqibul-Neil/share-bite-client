@@ -6,6 +6,7 @@ import EmptySearch from "../components/others/EmptySearch";
 import useAuth from "../hooks/useAuth";
 import ErrorPage from "./ErrorPage";
 import FoodCardSkeleton from "../components/others/FoodCardSkeleton";
+import { FaAppleAlt, FaInfoCircle } from "react-icons/fa";
 
 const AvailableFoods = () => {
   const [availableFoods, setAvailableFoods] = useState([]);
@@ -47,9 +48,13 @@ const AvailableFoods = () => {
     <div className="my-24">
       <title>ShareBite - Available Foods</title>
       <Container>
-        <div className="text-3xl text-center font-bold text-accent mb-4">
-          Currently Available Foods
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-3 mb-8">
+          <FaAppleAlt className="text-warning text-3xl" />
+          <h1 className="text-4xl md:text-5xl font-extrabold text-accent text-center">
+            Currently Available Foods
+          </h1>
         </div>
+
         <p className="text-center mb-10 text-primary">
           Discover a variety of freshly prepared meals shared by our generous
           community members. From wholesome vegetarian dishes to hearty

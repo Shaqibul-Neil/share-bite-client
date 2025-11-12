@@ -70,7 +70,7 @@ const RequestFoodModal = ({ foodInfo }) => {
                   name="name"
                   defaultValue={user?.displayName}
                   readOnly
-                  className="w-full bg-gray-50 border border-accent p-2 rounded-md focus:outline-none transition-all"
+                  className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                 />
               </div>
 
@@ -81,7 +81,7 @@ const RequestFoodModal = ({ foodInfo }) => {
                   name="email"
                   defaultValue={user?.email}
                   readOnly
-                  className="w-full bg-gray-50 border border-accent p-2 rounded-md focus:outline-none transition-all"
+                  className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                 />
               </div>
 
@@ -94,7 +94,7 @@ const RequestFoodModal = ({ foodInfo }) => {
                   name="image"
                   defaultValue={user?.photoURL}
                   readOnly
-                  className="w-full bg-gray-50 border border-accent p-2 rounded-md focus:outline-none transition-all"
+                  className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                 />
               </div>
               {/* Contact Number */}
@@ -105,7 +105,7 @@ const RequestFoodModal = ({ foodInfo }) => {
                   name="phone"
                   required
                   placeholder="e.g. +8801XXXXXXXXX"
-                  className="w-full bg-gray-50 border border-accent p-2 rounded-md focus:outline-none transition-all"
+                  className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                 />
               </div>
             </div>
@@ -118,7 +118,7 @@ const RequestFoodModal = ({ foodInfo }) => {
                 name="location"
                 required
                 placeholder="Enter your current location"
-                className="w-full bg-gray-50 border border-accent p-2 rounded-md focus:outline-none transition-all"
+                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
               />
             </div>
 
@@ -130,7 +130,7 @@ const RequestFoodModal = ({ foodInfo }) => {
                 required
                 placeholder="Describe your situation briefly..."
                 rows="3"
-                className="w-full bg-gray-50 border border-accent p-2 rounded-md focus:outline-none transition-all"
+                className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
               ></textarea>
             </div>
 

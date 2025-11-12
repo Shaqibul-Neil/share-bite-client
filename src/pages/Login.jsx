@@ -90,7 +90,7 @@ const Login = () => {
                   name="email"
                   onClick={() => setLoginError({ ...loginError, email: "" })}
                   placeholder="example@email.com"
-                  className="w-full bg-white/20 placeholder-gray-300 border border-primary focus:outline-none focus:border-amber-400 transition-all duration-200 p-2 text-primary rounded-lg"
+                  className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                 />
                 {loginError.email && (
                   <p className="absolute -bottom-5 left-0 text-xs text-red-400">
@@ -108,7 +108,7 @@ const Login = () => {
                   onClick={() => setLoginError({ ...loginError, password: "" })}
                   required
                   placeholder="Password"
-                  className="w-full bg-white/20 placeholder-gray-300 border border-primary focus:outline-none focus:border-amber-400 transition-all duration-200 p-2 text-primary rounded-lg"
+                  className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                 />
                 {loginError.password && (
                   <p className="absolute -bottom-5 left-0 text-xs text-red-400">

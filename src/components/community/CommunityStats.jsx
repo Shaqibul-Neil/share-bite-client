@@ -4,7 +4,7 @@ import Container from "../container/Container";
 
 const CommunityStats = () => {
   const { ref, inView } = useInView({
-    triggerOnce: true, // only trigger once
+    triggerOnce: false, // only trigger once
     threshold: 0.3,
   });
 

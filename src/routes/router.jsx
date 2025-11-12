@@ -12,6 +12,8 @@ import FoodDetails from "../pages/FoodDetails";
 import UpdateMyFood from "../pages/UpdateMyFood";
 import AboutUs from "../pages/AboutUs";
 import ErrorPage from "../pages/ErrorPage";
+import TermsConditions from "../pages/TermsConditions";
+import Contact from "../pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -81,6 +83,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/terms-conditions",
+        element: <TermsConditions />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
     ],
   },

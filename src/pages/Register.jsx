@@ -105,7 +105,7 @@ const Register = () => {
                   type="text"
                   name="name"
                   placeholder="Your full name"
-                  className="w-full bg-white/20 placeholder-gray-300 border border-primary focus:outline-none focus:border-amber-400 transition-all duration-200 p-2 text-primary rounded-lg"
+                  className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                 />
               </div>
 
@@ -116,7 +116,7 @@ const Register = () => {
                   type="text"
                   name="photo"
                   placeholder="Paste your photo link"
-                  className="w-full bg-white/20 placeholder-gray-300 border border-primary focus:outline-none focus:border-amber-400 transition-all duration-200 p-2 text-primary rounded-lg"
+                  className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                 />
               </div>
 
@@ -128,7 +128,7 @@ const Register = () => {
                   name="email"
                   required
                   placeholder="example@email.com"
-                  className="w-full bg-white/20 placeholder-gray-300 border border-primary focus:outline-none focus:border-amber-400 transition-all duration-200 p-2 text-primary rounded-lg"
+                  className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                   onChange={() => setSignUpError({ ...signUpError, email: "" })}
                 />
                 {signUpError.email && (
@@ -146,7 +146,7 @@ const Register = () => {
                   name="password"
                   required
                   placeholder="Password"
-                  className="w-full bg-white/20 placeholder-gray-300 border border-primary focus:outline-none focus:border-amber-400 transition-all duration-200 p-2 text-primary rounded-lg"
+                  className="w-full p-2 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
                   onChange={() =>
                     setSignUpError({ ...signUpError, password: "" })
                   }

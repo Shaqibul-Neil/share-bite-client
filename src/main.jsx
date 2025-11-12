@@ -5,31 +5,31 @@ import { RouterProvider } from "react-router";
 import AuthProvider from "./context/AuthProvider";
 import router from "./routes/router";
 import { Toaster } from "react-hot-toast";
-import { PropagateLoader } from "react-spinners";
 import { motion } from "framer-motion";
+import InitialLoader from "./components/others/InitialLoader";
 
 const Main = () => {
   const [spinnerOnLoad, setSpinnerOnLoad] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => {
       setSpinnerOnLoad(false);
-    }, 2000);
+    }, 1500);
     return () => clearTimeout(timer);
   }, []);
 
-  return (
+  return spinnerOnLoad ? (
+    <motion.div
+      className="flex justify-center items-center min-h-screen bg-black"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
+    >
+      <InitialLoader />
+      {/* <PropagateLoader height="120" width="120" color="#f57c00" /> */}
+    </motion.div>
+  ) : (
     <AuthProvider>
-      {spinnerOnLoad && (
-        <motion.div
-          className="flex justify-center items-center h-screen bg-accent"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          <PropagateLoader height="120" width="120" color="#f57c00" />
-        </motion.div>
-      )}
       <RouterProvider router={router} />
       <Toaster
         position="top-right"

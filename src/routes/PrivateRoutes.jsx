@@ -11,7 +11,7 @@ const PrivateRoutes = ({ children }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLoader(false);
-    }, 2000);
+    }, 1500);
     return () => clearTimeout(timer);
   }, []);
   if (userLoading || showLoader)

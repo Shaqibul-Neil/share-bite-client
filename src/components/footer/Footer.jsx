@@ -38,10 +38,16 @@ const Footer = () => {
           >
             About
           </Link>
-          <Link className="hover:text-warning transition-all duration-300">
+          <Link
+            to={"/terms-conditions"}
+            className="hover:text-warning transition-all duration-300"
+          >
             Terms & Conditions
           </Link>
-          <Link className="hover:text-warning transition-all duration-300">
+          <Link
+            to={"/contact"}
+            className="hover:text-warning transition-all duration-300"
+          >
             Contact
           </Link>
         </nav>

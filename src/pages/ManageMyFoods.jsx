@@ -15,13 +15,13 @@ const ManageMyFoods = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axiosSecureInstance.get(`/my-foods?email=${user.email}`).then((data) => {
+    axiosSecureInstance.get(`/my-foods?email=${user?.email}`).then((data) => {
       setTimeout(() => {
         setMyFoods(data.data);
         setManageLoading(false);
       }, 1500);
     });
-  }, [axiosSecureInstance, user, refresh]);
+  }, [axiosSecureInstance, user?.email, refresh]);
 
   const handleFoodDelete = (id) => {
     const swalWithBootstrapButtons = Swal.mixin({

@@ -7,7 +7,7 @@ import women2 from "../assets/women2.jpg";
 import Container from "../components/container/Container";
 import { Link } from "react-router";
 import { TiSocialInstagram } from "react-icons/ti";
-import { FaFacebookF } from "react-icons/fa";
+import { FaFacebookF, FaInfoCircle } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const AboutUs = () => {
@@ -39,11 +39,17 @@ const AboutUs = () => {
     <div className="bg-gray-50 text-gray-600">
       <Container>
         <div className="mx-auto px-4 py-20">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-3 mb-16 lg:mb-20">
+            <FaInfoCircle className="text-warning text-3xl" />
+            <h1 className="text-4xl md:text-5xl font-extrabold text-accent text-center">
+              About Us
+            </h1>
+          </div>
           <div className="grid grid-cols-1 gap-8 items-center">
             <div className="space-y-4">
               <div className="space-y-4">
-                <p className="bg-orange-100 text-warning text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider w-36">
-                  ABOUT SHAREBITE
+                <p className="bg-orange-100 text-warning text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider w-28">
+                  Who we are
                 </p>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-accent leading-tight">
                   {" "}

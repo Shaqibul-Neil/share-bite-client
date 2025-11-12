@@ -90,7 +90,7 @@ const AddFoods = () => {
               readOnly
               name="name"
               defaultValue={user.displayName}
-              className="w-64 lg:w-84 bg-gray-100 border border-accent p-2 rounded-md"
+              className="w-64 p-2 lg:w-84 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
             />
           </div>
 
@@ -102,7 +102,7 @@ const AddFoods = () => {
               placeholder="Your Email"
               readOnly
               defaultValue={user.email}
-              className="w-64 bg-gray-100 border border-accent p-2 lg:w-84 rounded-md"
+              className="w-64 p-2 lg:w-84 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
             />
           </div>
 
@@ -113,7 +113,7 @@ const AddFoods = () => {
               name="phone"
               required
               placeholder="Enter your contact number"
-              className="w-64 lg:w-84 bg-gray-50 border border-accent p-2 rounded-md focus:outline-none"
+              className="w-64 p-2 lg:w-84 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
             />
           </div>
 
@@ -125,7 +125,7 @@ const AddFoods = () => {
               placeholder="Your Photo URL"
               readOnly
               defaultValue={user.photoURL}
-              className="w-64 lg:w-84 bg-gray-100 border border-accent p-2 rounded-md"
+              className="w-64 p-2 lg:w-84 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
             />
           </div>
 
@@ -136,7 +136,7 @@ const AddFoods = () => {
               name="food_name"
               required
               placeholder="Enter food name"
-              className="w-64 lg:w-84 bg-gray-50 border border-accent p-2 rounded-md focus:outline-none"
+              className="w-64 p-2 lg:w-84 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
             />
           </div>
 
@@ -149,7 +149,7 @@ const AddFoods = () => {
               name="food_image"
               required
               placeholder="https://imgbb.com/your-image"
-              className="w-64 lg:w-84 bg-gray-50 border border-accent p-2 rounded-md focus:outline-none"
+              className="w-64 p-2 lg:w-84 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
             />
           </div>
 
@@ -160,8 +160,8 @@ const AddFoods = () => {
               type="text"
               name="food_quantity"
               required
-              placeholder="e.g. 10 plates or Serves 2"
-              className="w-64 lg:w-84 bg-gray-50 border border-accent p-2 rounded-md focus:outline-none"
+              placeholder="e.g. 10"
+              className="w-64 p-2 lg:w-84 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
             />
           </div>
 
@@ -173,7 +173,7 @@ const AddFoods = () => {
               name="expire_date"
               onChange={(date) => setExpireDate(date)}
               placeholderText="Select expiry date"
-              className="lg:w-84 w-64 bg-gray-50 border border-accent p-2 rounded-md focus:outline-none"
+              className="w-64 p-2 lg:w-84 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
             />
           </div>
 
@@ -184,7 +184,7 @@ const AddFoods = () => {
               required
               name="pickup_location"
               placeholder="Enter pickup address"
-              className="w-64 lg:w-84 bg-gray-50 border border-accent p-2 rounded-md focus:outline-none"
+              className="w-64 p-2 lg:w-84 bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
             />
           </div>
 
@@ -195,7 +195,7 @@ const AddFoods = () => {
               required
               placeholder="Write any special info about the food..."
               name="additional_notes"
-              className="lg:w-full w-64 bg-gray-50 border border-accent p-2 rounded-md focus:outline-none"
+              className="w-64 p-2 lg:w-full bg-gray-100 border border-gray-300 rounded-md focus:ring-amber-600 focus:border-amber-600 focus:outline-none focus:ring-1"
             ></textarea>
           </div>
 
