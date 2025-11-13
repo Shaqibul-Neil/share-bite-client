@@ -31,7 +31,7 @@ const FoodDetailsCard = ({ foodInfo }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* LEFT SIDE - IMAGE */}
         <div>
-          <div className="rounded-lg overflow-hidden shadow-md">
+          <div className="rounded-3xl overflow-hidden shadow-md">
             <img
               src={food?.food_image}
               alt={food?.food_name}
@@ -41,7 +41,7 @@ const FoodDetailsCard = ({ foodInfo }) => {
         </div>
 
         {/* RIGHT SIDE - TABS */}
-        <div className="bg-white px-6">
+        <div className="bg-white md:px-6 px-3">
           <Tabs>
             <TabList className="flex gap-4 border-b border-gray-200 pb-2">
               <Tab
