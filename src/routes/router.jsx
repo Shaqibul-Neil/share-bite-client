@@ -14,12 +14,24 @@ import AboutUs from "../pages/AboutUs";
 import ErrorPage from "../pages/ErrorPage";
 import TermsConditions from "../pages/TermsConditions";
 import Contact from "../pages/Contact";
+import { motion } from "framer-motion";
+import InitialLoader from "../components/others/InitialLoader";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    hydrateFallbackElement: <p>Loading</p>,
+    hydrateFallbackElement: (
+      <motion.div
+        className="flex justify-center items-center min-h-screen bg-black"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.4 }}
+      >
+        <InitialLoader />
+      </motion.div>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {

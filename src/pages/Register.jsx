@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 import { Eye, EyeOff } from "lucide-react";
-import Container from "../components/container/Container";
 import { useState } from "react";
 import passwordError from "../utilities/passwordError";
 import SecondaryButton from "../components/button/SecondaryButton";
