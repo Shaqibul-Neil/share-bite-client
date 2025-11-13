@@ -84,3 +84,7 @@ Both user types get an intuitive experience with validation, animation, and inst
 This project embodies the mission of reducing food waste and feeding communities with modern tech. Every feature was crafted to balance functionality, empathy, and performance — all while ensuring smooth UX and scalability for future growth. <br/>
 
 ## Live Link: <br/>
+
+```json
+https://sharebitemeal.netlify.app/
+```
