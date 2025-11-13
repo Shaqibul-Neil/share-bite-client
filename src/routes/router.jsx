@@ -24,7 +24,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader: () => fetch("http://localhost:5000/food-quantity"),
+        loader: () =>
+          fetch("https://share-bite-server-brown.vercel.app/food-quantity"),
         element: <Home />,
       },
       {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/available-foods",
-        loader: () => fetch("http://localhost:5000/foods"),
+        loader: () => fetch("https://share-bite-server-brown.vercel.app/foods"),
         element: <AvailableFoods />,
       },
       {

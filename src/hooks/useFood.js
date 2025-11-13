@@ -8,7 +8,7 @@ const useFood = () => {
   const [foodError, setFoodError] = useState(null);
   useEffect(() => {
     axiosInstance
-      .get("http://localhost:5000/foods")
+      .get("/foods")
       .then((data) => {
         setAllFoodData(data.data);
         setFoodLoading(false);

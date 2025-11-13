@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
 
 const axiosSecureInstance = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://share-bite-server-brown.vercel.app",
 });
 const useAxiosSecure = () => {
   const { user, signOutUser } = useAuth();

@@ -4,7 +4,7 @@ const SecondaryButton = ({
   type = "button",
   hoverTextColor,
   onClick,
-  width = "48",
+  width = "100",
   disabled = false,
 }) => {
   return (
@@ -16,7 +16,8 @@ const SecondaryButton = ({
     >
       {/* Hover animated background */}
       <span
-        className={`w-${width} h-48 rounded-3xl rotate-[-40deg] bg-white absolute bottom-0 left-0 -translate-x-full translate-y-full mb-9 ml-9 transition-all duration-500 ease-out group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0`}
+        className="h-48 rounded-3xl rotate-[-40deg] bg-white absolute bottom-0 left-0 -translate-x-full translate-y-full mb-9 ml-9 transition-all duration-500 ease-out group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"
+        style={{ width: `${width}%` }}
       ></span>
 
       {/* Button text */}

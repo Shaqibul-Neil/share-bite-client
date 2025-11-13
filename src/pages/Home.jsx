@@ -12,9 +12,10 @@ import FoodCardSkeleton from "../components/others/FoodCardSkeleton";
 import { Slide } from "react-awesome-reveal";
 import ShareKindSection from "../components/others/ShareKindSection";
 import Newsletter from "../components/newsletter/Newsletter";
+import { RotatingLines } from "react-loader-spinner";
 
 const Home = () => {
-  const { foodLoading } = useAuth();
+  const { foodLoading, foodError } = useAuth();
   const foodsData = useLoaderData();
   return (
     <div>
@@ -26,48 +27,72 @@ const Home = () => {
         <About />
       </section>
       <section className="py-16 lg:py-20 bg-yellow-50 mt-32">
-        <Container>
-          <div className="space-y-4">
-            <Slide direction="up" triggerOnce>
-              <p className="bg-orange-100 text-warning text-xs font-semibold px-3 py-1 rounded-full text-center uppercase tracking-wider w-32 mx-auto">
-                Good Deeds
-              </p>
-            </Slide>
-            <Slide direction="up" triggerOnce>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-accent leading-tight text-center">
-                Shared with <span className="text-warning">Generosity</span>
-              </h2>
-            </Slide>
-            <Slide direction="down" triggerOnce>
-              <p
-                className="text-center text-gray-600 mt-3 max-w-2xl mx-auto"
-                dat
+        {foodError ? (
+          <div className="w-full mx-auto flex items-center flex-col gap-4">
+            <p className="text-4xl text-gray-600 font-semibold leading-tight">
+              We are having trouble fetching the data. Please Reload.
+            </p>
+            <RotatingLines
+              visible={true}
+              height="96"
+              width="96"
+              color="grey"
+              strokeWidth="5"
+              animationDuration="0.75"
+              ariaLabel="rotating-lines-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          </div>
+        ) : (
+          <Container>
+            <div className="space-y-4">
+              <Slide direction="up" triggerOnce>
+                <p className="bg-orange-100 text-warning text-xs font-semibold px-3 py-1 rounded-full text-center uppercase tracking-wider w-32 mx-auto">
+                  Good Deeds
+                </p>
+              </Slide>
+              <Slide direction="up" triggerOnce>
+                <h2 className="text-3xl md:text-5xl font-extrabold text-accent leading-tight text-center">
+                  Shared with <span className="text-warning">Generosity</span>
+                </h2>
+              </Slide>
+              <Slide direction="down" triggerOnce>
+                <p
+                  className="text-center text-gray-600 mt-3 max-w-2xl mx-auto"
+                  dat
+                >
+                  Every meal tells a story of kindness. Explore a community
+                  where generous hearts come together to share food, reduce
+                  waste, and nourish those in need. Join us in making every bite
+                  count.
+                </p>
+              </Slide>
+            </div>
+
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 my-10">
+              {foodLoading ? (
+                <FoodCardSkeleton />
+              ) : (
+                foodsData.map((food, idx) => (
+                  <FoodCard food={food} key={food._id} idx={idx} />
+                ))
+              )}
+            </div>
+
+            <div className="flex justify-center mt-6">
+              <MyButton
+                to={"/available-foods"}
+                className={
+                  "py-3 px-6 bg-warning hover:bg-warning border-warning"
+                }
               >
-                Every meal tells a story of kindness. Explore a community where
-                generous hearts come together to share food, reduce waste, and
-                nourish those in need. Join us in making every bite count.
-              </p>
-            </Slide>
-          </div>
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 my-10">
-            {foodLoading ? (
-              <FoodCardSkeleton />
-            ) : (
-              foodsData.map((food, idx) => (
-                <FoodCard food={food} key={food._id} idx={idx} />
-              ))
-            )}
-          </div>
-          <div className="flex justify-center mt-6">
-            <MyButton
-              to={"/available-foods"}
-              className={"py-3 px-6 bg-warning hover:bg-warning border-warning"}
-            >
-              {" "}
-              Show All Foods
-            </MyButton>
-          </div>
-        </Container>
+                {" "}
+                Show All Foods
+              </MyButton>
+            </div>
+          </Container>
+        )}
       </section>
       <section className="lg:pt-24 md:pt-20 pt-16">
         <ShareKindSection />

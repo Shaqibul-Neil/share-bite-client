@@ -212,7 +212,7 @@ const Register = () => {
                 className="w-full py-2 bg-warning text-warning border-warning hover:bg-warning"
                 type="submit"
                 hoverTextColor="group-hover:text-warning"
-                width="64"
+                width={100}
               >
                 Register
               </SecondaryButton>

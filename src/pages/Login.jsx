@@ -1,7 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Eye, EyeOff } from "lucide-react";
-import Container from "../components/container/Container";
 import useAuth from "../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router";
 import SecondaryButton from "../components/button/SecondaryButton";
@@ -163,7 +162,7 @@ const Login = () => {
                 <SecondaryButton
                   className="w-full py-2 bg-warning text-warning border-warning hover:bg-warning"
                   type="submit"
-                  width="64"
+                  width={100}
                   hoverTextColor="group-hover:text-warning"
                 >
                   Login

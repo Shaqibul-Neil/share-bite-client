@@ -258,6 +258,7 @@ const AddFoods = () => {
               type="submit"
               className="w-48 bg-warning hover:bg-warning/90 border-warning py-3"
               hoverTextColor="group-hover:text-warning"
+              width={100}
             >
               Submit Food
             </SecondaryButton>
