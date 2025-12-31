@@ -79,6 +79,49 @@ Because every meal shared is a story saved — and technology should make kindne
 
 Both user types get an intuitive experience with validation, animation, and instant response systems. <br/>
 
+## Getting Started
+
+Follow these steps to get your project up and running:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/Shaqibul-Neil/share-bite-client.git
+   ```
+
+2. **Navigate to the project folder:**
+
+```
+cd your-repository
+```
+
+3. **Install dependencies:**
+
+```
+npm install
+```
+
+4. **Configure environment variables:**
+   Create a .env file in the project root and configure any necessary environment variables. For example:
+
+```
+VITE_apiKey= YOUR_API_KEY
+VITE_authDomain= YOUR_DOMAIN
+VITE_projectId= YOUR_PROJECTID
+VITE_storageBucket= YOUR_STORAGEBUCKET
+VITE_messagingSenderId= YOUR_MESSAGEING_SENDER_ID
+VITE_appId= YOUR_APIID
+VITE_image_host=IMAGE BB API
+```
+
+3. **Run the application:**
+
+```
+npm run dev
+```
+
+Your application should now be running at http://localhost:5173.
+
 ## ❤️ Developer Notes <br/>
 
 This project embodies the mission of reducing food waste and feeding communities with modern tech. Every feature was crafted to balance functionality, empathy, and performance — all while ensuring smooth UX and scalability for future growth. <br/>
